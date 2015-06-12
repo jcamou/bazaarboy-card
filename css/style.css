@@ -1,0 +1,140 @@
+body {
+  background: #f2f2f2;
+  color: #7a7a7a;
+  margin: 0;
+  line-height: 1.5em; }
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%; }
+
+.box {
+  margin: 0 auto;
+  margin-top: 4em;
+  padding: 2em;
+  width: 800px;
+  height: 600px;
+  background-color: #ffffff;
+  border-radius: 6px; }
+
+.profile-img {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  float: left;
+  margin-top: 1em;
+  margin-right: 2em; }
+
+.bottom-section {
+  border-top: 1px solid #ebebeb;
+  position: relative;
+  padding-left: 2em; }
+
+.left {
+  display: inline-block;
+  width: 45%;
+  border-right: 1px solid #ebebeb;
+  float: left;
+  padding-right: 1em; }
+
+.right {
+  display: inline-block;
+  width: 45%;
+  padding-left: 2em; }
+
+.top-section {
+  position: relative;
+  margin-bottom: 2em; }
+
+.section-content {
+  display: inline-block;
+  width: 65%; }
+
+.highlight {
+  color: #faa638;
+  margin-right: .25em; }
+
+.call-to-action {
+  display: block;
+  position: relative;
+  margin-top: 2em; }
+
+.field-wrapper label {
+  color: #575757;
+  font-weight: 600;
+  font-size: .75em;
+  display: block;
+  max-width: 635px;
+  padding-bottom: .25em;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+.field-wrapper input {
+  display: block;
+  padding: 0.5rem;
+  box-shadow: none;
+  background-color: white;
+  border-radius: 4px;
+  border-color: #d4d4d4;
+  outline: none;
+  color: #4a4a4a;
+  height: 2.3125rem;
+  width: 100%;
+  transition: all .125s !important;
+  -webkit-transition: -webkit-box-shadow 0.45s, border-color 0.45s ease-in-out;
+  -moz-transition: -moz-box-shadow 0.45s, border-color 0.45s ease-in-out;
+  transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+  height: auto !important;
+  line-height: 20px;
+  font-weight: 300;
+  -webkit-appearance: none;
+  font-family: inherit;
+  border: 1px solid #cccccc;
+  font-size: 0.875rem;
+  margin: 0 0 1rem 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.shipping-address {
+  display: none; }
+
+.primary-btn {
+  background: #c57724;
+  color: #ffffff;
+  border: #c57724 thin solid;
+  display: block;
+  text-align: center;
+  border-radius: 3px;
+  padding: 12px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all .125s; }
+
+.site-footer {
+  position: relative;
+  background: #161615;
+  min-height: 100px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: initial; }
+
+.city-state {
+  position: relative; }
+  .city-state .city-name {
+    display: inline-block;
+    float: left; }
+    .city-state .city-name input {
+      width: 100px;
+      height: 2.3125rem; }
+
+.card-information.label {
+  width: 65px; }
+
+/*# sourceMappingURL=style.css.map */

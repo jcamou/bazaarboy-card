@@ -1,0 +1,42 @@
+/* Variables for site */
+
+/* Basic Colors 
+------------------------------ */
+$blue-background: rgba(254, 254, 254, .3);
+$cream : white;
+$blue: #336699;
+$dark-blue: #003366;
+$light-blue: #cccccc;
+$orange: #ffcc66;
+$red: #ff6666;
+$dark-red: #fe1d1d;
+$dark-grey: #221e1f;
+$yellow: #fdf305;
+$normal-grey: #555555;
+
+
+/* light Colors 
+------------------------------ */
+$baby-blue: #03d3f9;
+$light-yellow: #fadfa6;
+$light-red: #fd9b9b;
+$light-grey: #eae9e7;
+$text-font: #27313e;
+$border-grey: rgba(204, 204, 204, 1);
+
+
+
+/* Typography
+---------------------------------- */
+$serif: 'Merriweather', Georgia,"Times New Roman",serif;
+$sans-serif: "omnes-pro",sans-serif;
+
+/* Mixins
+---------------------------------- */
+@mixin vendor-prefix($name, $argument) {
+  #{$name}: $argument;
+  -webkit-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -o-#{$name}: $argument;
+}
