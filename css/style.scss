@@ -1,9 +1,13 @@
+
+
 body {
 
   background: #f2f2f2;
   color: #7a7a7a;
   margin: 0;
   line-height: 1.5em;
+
+  font-family: "omnes-pro",sans-serif;
 }
 
 fieldset {
@@ -18,13 +22,24 @@ fieldset {
   width: 100%;
 }
 
+.header-img {
+	position: absolute;
+	width: 100%;
+	height: 400px;
+	background-image: url("../img/Guild-Logo-STLBG-1160x360.jpg");
+	background-repeat: none;
+	z-index: -1000;
+}
+
 .box {
 	margin: 0 auto;
-	margin-top: 4em;
+	margin-top: 10em;
 	padding: 2em;
   	width: 800px;
   	background-color: #ffffff;
   	border-radius: 6px;
+  	border: 1px solid #ebebeb;
+
 
 
 }
@@ -34,8 +49,8 @@ fieldset {
 	margin-bottom: 2em;
 }
 
-.profile-img {
-	//background-image: {site.site_url}/img/profile-pic/profile-pic.png;
+.img-wrapper {
+
 	display: inline-block;
 	width: 200px;
 	height: 200px;;
@@ -43,9 +58,23 @@ fieldset {
 	float: left;
 	margin-top: 1em;
 	margin-right: 2em;
+	border: 1px solid #ebebeb;
 
 }
 
+.img {
+	width: 100%;
+	height: 100%;
+	background-image: url("../img/logo.png");
+	background-size:   cover;                      /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;  
+}
+
+.payment-subheadings {
+	color: #faa638;
+	letter-spacing: 1px;
+}
 
 #customer-form {
 	border-top: 1px solid #ebebeb;
@@ -58,12 +87,17 @@ fieldset {
 
 .section-content {
 	display: inline-block;
-	width: 65%;
+	width: 70%;
+
+	h1 {
+		color: #d79e5a;
+		letter-spacing: 1.25px;
+	}
 }
 
 .highlight {
 	color: #faa638;
-	margin-right: .25em;
+	margin-right: .45em;
 }
 
 .call-to-action {
@@ -125,6 +159,10 @@ fieldset {
 		  -moz-box-sizing: border-box;
 		  -webkit-box-sizing: border-box;
 		  box-sizing: border-box;
+
+		  &:focus {
+		  	border-color: #249af7;
+		  }
 		  
 	}
 }
@@ -134,22 +172,22 @@ fieldset {
 }
 
 .primary-btn {
-  background: #c57724;
+  background: #faa638;
   color: #ffffff;
   border: #c57724 thin solid;
   display: block;
   text-align: center;
   border-radius: 3px;
-  padding: 12px 10px;
-  font-size: 14px;
+  padding: .5em .875em;
+  font-size: 1em;
   font-weight: bold;
   cursor: pointer;
   transition: all .125s;
  }
 
 .site-footer {
-	position: relative;
- 	background: #161615;
+	display: none;
+ 	background: #272822;
  	min-height: 100px;
  	width: 100%;
   	margin-left: auto;
@@ -158,22 +196,71 @@ fieldset {
 
 }
 
-.city-state {
+.form-section {
+	border-top: 1px solid #ebebeb;
+
+	&:first-of-type {
+		border-top: none;
+	}
+}
+
+.shipping-info {
+	display: none;
+}
+
+.card-information {
 	position: relative;
 
-	.city-name {
+	.cvc {
 		display: inline-block;
-		float: left;
+		width: 25%;
+	}
 
-		input {
-			width: 100px;
+	.exp-date {
+		display: inline-block;
+		width: 55%;
+		position: relative;
 
-			height: 2.3125rem;
+		#exp-month {
+			display: inline-block;
+			width: 25%;
+			margin-right: 1em;
+
+		}
+
+		#exp-year {
+			display: inline-block;
+			width: 42%;
 		}
 	}
 
 }
 
-.card-information.label {
-	width: 65px;
+.city-state {
+	position: relative;
+
+	.billing-city, .shipping-city {
+		display: inline-block;
+		width: 25%;
+	}
+
+	.billing-state, .shipping-state {
+		display: inline-block;
+		width: 25%;
+	}
+
+	.billing-zip, .shipping-zip {
+		display: inline-block;
+		width: 25%;
+	}
+
+}
+
+.radio-btn {
+	margin-top: 1em;
+	margin-bottom: 3em;
+
+	input {
+		margin-right: 1em;
+	}
 }

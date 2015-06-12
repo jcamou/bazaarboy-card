@@ -2,10 +2,10 @@ $(document).ready(function() {
   $("#purchase").click(function(e) {
       e.preventDefault();
 
-      alert("yes baby");
-
     // See Teez answer, I wasn't aware of this.
     var dataToSend = $("#customer-form").serializeArray();
+
+    // If I can't figure out how to do the checkbox, then count the length of the array
 
     $.ajax({                
         url: "userDetailTest.php", 
@@ -18,7 +18,18 @@ $(document).ready(function() {
         }    
     });
   });
+
+  $('#same-address').change(function(){
+        if(this.checked)
+            $('.shipping-info').fadeOut('slow');
+        else
+            $('.shipping-info').fadeIn('slow');
+
+    });
 });
+
+
+
 
 
 

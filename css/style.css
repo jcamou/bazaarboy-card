@@ -2,7 +2,8 @@ body {
   background: #f2f2f2;
   color: #7a7a7a;
   margin: 0;
-  line-height: 1.5em; }
+  line-height: 1.5em;
+  font-family: "omnes-pro",sans-serif; }
 
 fieldset {
   border: none; }
@@ -14,26 +15,49 @@ fieldset {
   height: 100%;
   width: 100%; }
 
+.header-img {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background-image: url("../img/Guild-Logo-STLBG-1160x360.jpg");
+  background-repeat: none;
+  z-index: -1000; }
+
 .box {
   margin: 0 auto;
-  margin-top: 4em;
+  margin-top: 10em;
   padding: 2em;
   width: 800px;
   background-color: #ffffff;
-  border-radius: 6px; }
+  border-radius: 6px;
+  border: 1px solid #ebebeb; }
 
 .top-section {
   position: relative;
   margin-bottom: 2em; }
 
-.profile-img {
+.img-wrapper {
   display: inline-block;
   width: 200px;
   height: 200px;
   background-color: black;
   float: left;
   margin-top: 1em;
-  margin-right: 2em; }
+  margin-right: 2em;
+  border: 1px solid #ebebeb; }
+
+.img {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/logo.png");
+  background-size: cover;
+  /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.payment-subheadings {
+  color: #faa638;
+  letter-spacing: 1px; }
 
 #customer-form {
   border-top: 1px solid #ebebeb; }
@@ -43,11 +67,14 @@ fieldset {
 
 .section-content {
   display: inline-block;
-  width: 65%; }
+  width: 70%; }
+  .section-content h1 {
+    color: #d79e5a;
+    letter-spacing: 1.25px; }
 
 .highlight {
   color: #faa638;
-  margin-right: .25em; }
+  margin-right: .45em; }
 
 .call-to-action {
   display: block;
@@ -90,42 +117,75 @@ fieldset {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
+  .field-wrapper input:focus {
+    border-color: #249af7; }
 
 .shipping-address {
   display: none; }
 
 .primary-btn {
-  background: #c57724;
+  background: #faa638;
   color: #ffffff;
   border: #c57724 thin solid;
   display: block;
   text-align: center;
   border-radius: 3px;
-  padding: 12px 10px;
-  font-size: 14px;
+  padding: .5em .875em;
+  font-size: 1em;
   font-weight: bold;
   cursor: pointer;
   transition: all .125s; }
 
 .site-footer {
-  position: relative;
-  background: #161615;
+  display: none;
+  background: #272822;
   min-height: 100px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   max-width: initial; }
 
+.form-section {
+  border-top: 1px solid #ebebeb; }
+  .form-section:first-of-type {
+    border-top: none; }
+
+.shipping-info {
+  display: none; }
+
+.card-information {
+  position: relative; }
+  .card-information .cvc {
+    display: inline-block;
+    width: 25%; }
+  .card-information .exp-date {
+    display: inline-block;
+    width: 55%;
+    position: relative; }
+    .card-information .exp-date #exp-month {
+      display: inline-block;
+      width: 25%;
+      margin-right: 1em; }
+    .card-information .exp-date #exp-year {
+      display: inline-block;
+      width: 42%; }
+
 .city-state {
   position: relative; }
-  .city-state .city-name {
+  .city-state .billing-city, .city-state .shipping-city {
     display: inline-block;
-    float: left; }
-    .city-state .city-name input {
-      width: 100px;
-      height: 2.3125rem; }
+    width: 25%; }
+  .city-state .billing-state, .city-state .shipping-state {
+    display: inline-block;
+    width: 25%; }
+  .city-state .billing-zip, .city-state .shipping-zip {
+    display: inline-block;
+    width: 25%; }
 
-.card-information.label {
-  width: 65px; }
+.radio-btn {
+  margin-top: 1em;
+  margin-bottom: 3em; }
+  .radio-btn input {
+    margin-right: 1em; }
 
 /*# sourceMappingURL=style.css.map */

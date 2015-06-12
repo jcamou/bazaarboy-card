@@ -16,12 +16,51 @@
         <link rel="stylesheet" href="/css/style.css">
         
         <!-- fonts -->
-        <script type="text/javascript" src="//use.typekit.net/vuo0kub.js"></script>
-		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic' rel='stylesheet' type='text/css'>
+        <script src="//use.typekit.net/ldu3aid.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script>
+        
+        <!-- JS -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="/js/main.js"></script>
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+        <script type="text/javascript">
+          // This identifies your website in the createToken call below
+          Stripe.setPublishableKey('00265e1bc618');
+          // ...
 
-        <!-- Widow Tamer -->
-        <script src="/js/widowtamer.js"></script>
+          function stripeResponseHandler(status, response) {
+              var $form = $('#customer-form');
+              if (response.error) {
+                // Show the errors on the form
+                $form.find('.payment-errors').text(response.error.message);
+                $form.find('#purchase').prop('disabled', false);
+              } else {
+                // response contains id and card, which contains additional card details
+                var token = response.id;
+                // Insert the token into the form so it gets submitted to the server
+                $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+                // and submit
+                $form.get(0).submit();
+              }
+            };
+
+            jQuery(function($) {
+              $('#customer-form').submit(function(event) {
+                var $form = $(this);
+
+                // Disable the submit button to prevent repeated clicks
+                $form.find('#purchase').prop('disabled', true);
+                
+
+                Stripe.card.createToken($form, stripeResponseHandler);
+
+                // Prevent the form from submitting with the default action
+                return false;
+              });
+            });
+        </script>
+
+
         
     </head>
     <body>
@@ -31,9 +70,12 @@
 
         <section class="content">
         <div class="container">
+    <div class="header-img">
+    </div>
     <div class="box">
         <div class="top-section">
-            <div class="profile-img">
+            <div class="img-wrapper">
+                <div class="img"></div>
             </div>
             <div class="section-content">
                 <h1>St. Louis Brewers Guild Annual Membership</h1>
@@ -44,7 +86,7 @@
 
             </div>
         </div>
-        <form id="customer-form" >
+        <form id="customer-form" method="POST" >
             <fieldset>
                 <div class="form-section customer-info">
                     <h3 class="payment-subheadings">Personal Information</h3>
@@ -65,51 +107,73 @@
                     <h3 class="payment-subheadings">Payment Information</h3>
                     <div class="field-wrapper"> 
                         <label for="name-on-card" class=""> Name on Card:</label> 
-                        <input type="text" name="name-on-card" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="name-on-card"> 
+                        <input type="text" data-stripe="name" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="name-on-card"> 
                     </div>
                     <div class="field-wrapper"> 
                         <label for="cc-number" class=""> Credit Card Number:</label> 
-                        <input type="text" name="cc-number" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="cc-number"> 
+                        <input type="text" data-stripe="number" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="cc-number"> 
                     </div>
                     <div class="card-information">
-                        <div class="field-wrapper"> 
+                        <div class="field-wrapper cvc"> 
                             <label for="cvc-number" class=""> CVC:</label> 
-                            <input type="text" name="username" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="cvc-number"> 
+                            <input type="text" data-stripe="cvc" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="cvc-number"> 
                         </div>
-                        <div class="field-wrapper"> 
+                        <div class="field-wrapper exp-date"> 
                             <label for="exp-date" class=""> Expiration Date:</label> 
-                            <input type="text" name="exp-month" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="exp-month"> 
-                            <input type="text" name="exp-year" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="exp-year"> 
+                            <input type="text" stripe-name="exp-month" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="mm" id="exp-month"> 
+                            <input type="text" stripe-name="exp-year" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="yyyy" id="exp-year"> 
                         </div>
-                    </div>
-                </div>
-                <div class="form-section payment-info">
-                    <h3 class="payment-subheadings">Billing Address</h3>
-                    <div class="field-wrapper"> 
-                        <label for="billing-address" class=""> Street Address:</label> 
-                        <input type="text" name="billing-address" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-address"> 
-                    </div>
-                    <div class="city-state">
-                        <div class="billing-city"> 
-                            <label for="billing-city" class=""> City:</label> 
-                            <input type="text" name="billing-city" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-city"> 
-                        </div>
-                        <div class="field-wrapper"> 
-                            <label for="billing-state" class=""> State:</label> 
-                            <input type="text" name="billing-state" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-state"> 
-                        </div>
-                        <div class="field-wrapper"> 
-                            <label for="billing-zip" class=""> ZIP:</label> 
-                            <input type="text" name="billing-zip" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-zip"> 
-                        </div>
-                    </div>
-                    <div class="radio-btn">
-                        <label><input name="same-address" type="checkbox" rrole="checkbox" aria-checked="true" id="same-address" checked>Shipping address the same as billing address?</label>
                     </div>
                 </div>
 
+                <div class="form-section billing-info">
+                    <h3 class="payment-subheadings">Billing Address</h3>
+                    <div class="field-wrapper"> 
+                        <label for="billing-address" class=""> Street Address:</label> 
+                        <input type="text" data-stripe="billing-address" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-address"> 
+                    </div>
+                    <div class="city-state">
+                        <div class="field-wrapper billing-city"> 
+                            <label for="billing-city" class=""> City:</label> 
+                            <input type="text" data-stripe="billing-city" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-city"> 
+                        </div>
+                        <div class="field-wrapper billing-state"> 
+                            <label for="billing-state" class=""> State:</label> 
+                            <input type="text" data-stripe="billing-state" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-state"> 
+                        </div>
+                        <div class="field-wrapper billing-zip"> 
+                            <label for="billing-zip" class=""> ZIP:</label> 
+                            <input type="text" data-stripe="billing-zip" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-zip"> 
+                        </div>
+                    </div>
+                    <div class="radio-btn">
+                        <label><input name="same-address" type="checkbox" role="checkbox" aria-checked="true" id="same-address" checked>Shipping address the same as billing address?</label>
+                    </div>
+
+                    <div class="form-section shipping-info">
+                    <h3 class="payment-subheadings">Shipping Address</h3>
+                    <div class="field-wrapper"> 
+                        <label for="shipping-address" class=""> Street Address:</label> 
+                        <input type="text" name="shipping-address" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="shipping-address"> 
+                    </div>
+                    <div class="city-state">
+                        <div class="field-wrapper shipping-city"> 
+                            <label for="shipping-city" class=""> City:</label> 
+                            <input type="text" name="shipping-city" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="shipping-city"> 
+                        </div>
+                        <div class="field-wrapper shipping-state"> 
+                            <label for="shipping-state" class=""> State:</label> 
+                            <input type="text" name="shipping-state" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="shipping-state"> 
+                        </div>
+                        <div class="field-wrapper shipping-zip"> 
+                            <label for="shipping-zip" class=""> ZIP:</label> 
+                            <input type="text" name="shipping-zip" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="shipping-zip"> 
+                        </div>
+                    </div>
+                </div>
+                <span class="payment-errors"></div>
                 <div class="call-to-action">
-                    <button id="purchase" class="primary-btn" type="submit" value="Purchase" onClick="Purchase()">
+                    <input id="purchase" class="primary-btn" type="submit" value="Purchase">
                 </div>
             </fieldset>
         </form>
@@ -126,9 +190,7 @@
                 </div>
             </footer>
         </section>
-        <!-- JS -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="/js/main.js"></script>
+      
 
         <!-- Analytics -->
         

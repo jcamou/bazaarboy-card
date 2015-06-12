@@ -16,12 +16,51 @@
         <link rel="stylesheet" href="{{site.site_url}}/css/style.css">
         
         <!-- fonts -->
-        <script type="text/javascript" src="//use.typekit.net/vuo0kub.js"></script>
-		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-        <link href='http://fonts.googleapis.com/css?family=Merriweather:300,300italic,400,400italic' rel='stylesheet' type='text/css'>
+        <script src="//use.typekit.net/ldu3aid.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script>
+        
+        <!-- JS -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="{{site.site_url}}/js/main.js"></script>
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+        <script type="text/javascript">
+          // This identifies your website in the createToken call below
+          Stripe.setPublishableKey('00265e1bc618');
+          // ...
 
-        <!-- Widow Tamer -->
-        <script src="{{site.site_url}}/js/widowtamer.js"></script>
+          function stripeResponseHandler(status, response) {
+              var $form = $('#customer-form');
+              if (response.error) {
+                // Show the errors on the form
+                $form.find('.payment-errors').text(response.error.message);
+                $form.find('#purchase').prop('disabled', false);
+              } else {
+                // response contains id and card, which contains additional card details
+                var token = response.id;
+                // Insert the token into the form so it gets submitted to the server
+                $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+                // and submit
+                $form.get(0).submit();
+              }
+            };
+
+            jQuery(function($) {
+              $('#customer-form').submit(function(event) {
+                var $form = $(this);
+
+                // Disable the submit button to prevent repeated clicks
+                $form.find('#purchase').prop('disabled', true);
+                
+
+                Stripe.card.createToken($form, stripeResponseHandler);
+
+                // Prevent the form from submitting with the default action
+                return false;
+              });
+            });
+        </script>
+
+
         
     </head>
     <body>
@@ -42,9 +81,7 @@
                 </div>
             </footer>
         </section>
-        <!-- JS -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="{{site.site_url}}/js/main.js"></script>
+      
 
         <!-- Analytics -->
         
