@@ -1,10 +1,26 @@
 $(document).ready(function() {
+  $("#purchase").click(function(e) {
+      e.preventDefault();
 
+      alert("yes baby");
+
+    // See Teez answer, I wasn't aware of this.
+    var dataToSend = $("#customer-form").serializeArray();
+
+    $.ajax({                
+        url: "userDetailTest.php", 
+        type: "POST",
+        data: dataToSend,     
+        cache: false,
+        success: function(php_output)
+        {
+         $(".overallSummary").html(php_output);
+        }    
+    });
+  });
 });
 
 
-function ExampleJS(){
-    var jFirst = document.getElementById("name-on-card").value;
-    var jLast = document.getElementById("cc-number").value;
-    alert("Your name is: " + jFirst + " " + jLast);
- };
+
+//if ($('input#same-address').is(':checked')) {
+

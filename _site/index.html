@@ -44,76 +44,88 @@
 
             </div>
         </div>
-        <div class="bottom-section">
-            <div class="info-sects left">
-                <h3 class="payment-subheadings">Payment Information</h3>
-                <div class="field-wrapper"> 
-                    <label for="name-on-card" class=""> Name on Card:</label> 
-                    <input type="text" name="name-on-card" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="name-on-card"> 
-                </div>
-                <div class="field-wrapper"> 
-                    <label for="cc-number" class=""> Credit Card Number:</label> 
-                    <input type="text" name="cc-number" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="cc-number"> 
-                </div>
-                <div class="card-information">
+        <form id="customer-form" >
+            <fieldset>
+                <div class="form-section customer-info">
+                    <h3 class="payment-subheadings">Personal Information</h3>
                     <div class="field-wrapper"> 
-                        <label for="cvc-number" class=""> CVC:</label> 
-                        <input type="text" name="username" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="cvc-number"> 
+                        <label for="user-name" class=""> Full Name:</label> 
+                        <input type="text" name="user-name" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="user-name"> 
                     </div>
                     <div class="field-wrapper"> 
-                        <label for="exp-date" class=""> Expiration Date:</label> 
-                        <input type="text" name="exp-month" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="exp-month"> 
-                        <input type="text" name="exp-year" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="exp-year"> 
+                        <label for="user-email" class=""> Email:</label> 
+                        <input type="email" name="email" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="email"> 
+                    </div>
+                    <div class="field-wrapper"> 
+                        <label for="user-phone" class=""> Phone Number:</label> 
+                        <input type="text" name="user-phone" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="user-phone"> 
                     </div>
                 </div>
-
-            </div>
-            <div class="info-sects right">
-                <div class="payment"></div>
+                <div class="form-section payment-info">
+                    <h3 class="payment-subheadings">Payment Information</h3>
+                    <div class="field-wrapper"> 
+                        <label for="name-on-card" class=""> Name on Card:</label> 
+                        <input type="text" name="name-on-card" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="name-on-card"> 
+                    </div>
+                    <div class="field-wrapper"> 
+                        <label for="cc-number" class=""> Credit Card Number:</label> 
+                        <input type="text" name="cc-number" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="cc-number"> 
+                    </div>
+                    <div class="card-information">
+                        <div class="field-wrapper"> 
+                            <label for="cvc-number" class=""> CVC:</label> 
+                            <input type="text" name="username" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="cvc-number"> 
+                        </div>
+                        <div class="field-wrapper"> 
+                            <label for="exp-date" class=""> Expiration Date:</label> 
+                            <input type="text" name="exp-month" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="exp-month"> 
+                            <input type="text" name="exp-year" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="exp-year"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section payment-info">
                     <h3 class="payment-subheadings">Billing Address</h3>
                     <div class="field-wrapper"> 
-                        <label for="street-address" class=""> Street Address:</label> 
-                        <input type="text" name="username" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="street-address"> 
+                        <label for="billing-address" class=""> Street Address:</label> 
+                        <input type="text" name="billing-address" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-address"> 
                     </div>
                     <div class="city-state">
-                        <div class="city-name"> 
-                            <label for="city-name" class=""> City:</label> 
-                            <input type="text" name="username" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="city-name"> 
+                        <div class="billing-city"> 
+                            <label for="billing-city" class=""> City:</label> 
+                            <input type="text" name="username" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-city"> 
                         </div>
                         <div class="field-wrapper"> 
-                            <label for="state-letters" class=""> State:</label> 
-                            <input type="text" name="username" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="state-letters"> 
+                            <label for="billing-state" class=""> State:</label> 
+                            <input type="text" name="billing-state" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-state"> 
                         </div>
                         <div class="field-wrapper"> 
-                            <label for="zip-number" class=""> ZIP:</label> 
-                            <input type="text" name="username" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="zip-number"> 
+                            <label for="billing-zip" class=""> ZIP:</label> 
+                            <input type="text" name="billing-zip" tabindex="1" autofocus="autofocus" autocorrect="off" autocapitalize="off" class=" av-text" value="" id="billing-zip"> 
                         </div>
                     </div>
+                    <div class="radio-btn">
+                        <label><input name="same-address" type="checkbox" rrole="checkbox" aria-checked="true" id="same-address" checked>Shipping address the same as billing address?</label>
+                    </div>
                 </div>
-                <div class="radio-btn">
-                    <label for="stay-signed-in" class="signed-in-label block nopadding">
-                        <div class="dijit dijitReset dijitInline av-checkbox dijitCheckBox" role="presentation" widgetid="stay-signed-in">
-                            <input name="stay-signed-in" type="checkbox" role="checkbox" aria-checked="false" class="dijitReset dijitCheckBoxInput" tabindex="0" value="Y" id="stay-signed-in" style="-webkit-user-select: none;" checked></div>
-                            Shipping address the same as billing address?
-                    </label>
+
+                <div class="call-to-action">
+                    <button id="purchase" class="primary-btn" type="submit" value="Purchase" onClick="Purchase()">
                 </div>
-            </div>
-        <div class="call-to-action">
-                <input id="purchase" class="primary-btn" type="submit" value="Place Order" onClick="ExampleJS()">
-            </div>
+            </fieldset>
+        </form>
     </div>
 </div>
-        </section>
-
-        <footer class="site-footer">
-            <div class="row">
-                <div class="small-12 columns">
-                    <div class="links">
-                        <span>© 2015 Bazaarboy, LLC</span><span>|</span><a href="https://bazaarboy.s3.amazonaws.com/static/bboy-terms.pdf">Terms of Use</a><a href="/pricing/">Pricing</a><a href="mailto:build@bazaarboy.com">Contact</a><a href="/login/">Log In</a><a href="/register/">Sign Up</a>
+        
+            <footer class="site-footer">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <div class="links">
+                            <span>© 2015 Bazaarboy, LLC</span><span>|</span><a href="https://bazaarboy.s3.amazonaws.com/static/bboy-terms.pdf">Terms of Use</a><a href="/pricing/">Pricing</a><a href="mailto:build@bazaarboy.com">Contact</a><a href="/login/">Log In</a><a href="/register/">Sign Up</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </section>
         <!-- JS -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="/js/main.js"></script>
