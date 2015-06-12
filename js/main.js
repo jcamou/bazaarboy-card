@@ -7,8 +7,14 @@ $(document).ready(function() {
 
     // If I can't figure out how to do the checkbox, then count the length of the array
 
+    // Test to check what I'm sending
+	//len = dataToSend.length;
+	//for (i=0; i<len; i++) {
+  		//alert(dataToSend[i].value); 
+	//}
+
     $.ajax({                
-        url: "userDetailTest.php", 
+        url: "yourPHPFile.php", 
         type: "POST",
         data: dataToSend,     
         cache: false,
@@ -29,9 +35,4 @@ $(document).ready(function() {
 });
 
 
-
-
-
-
-//if ($('input#same-address').is(':checked')) {
 

@@ -18,12 +18,13 @@
         <!-- fonts -->
         <script src="//use.typekit.net/ldu3aid.js"></script>
         <script>try{Typekit.load();}catch(e){}</script>
-        
+
         <!-- JS -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="/js/main.js"></script>
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
         <script type="text/javascript">
+
           // This identifies your website in the createToken call below
           Stripe.setPublishableKey('00265e1bc618');
           // ...
@@ -50,7 +51,6 @@
 
                 // Disable the submit button to prevent repeated clicks
                 $form.find('#purchase').prop('disabled', true);
-                
 
                 Stripe.card.createToken($form, stripeResponseHandler);
 
@@ -59,8 +59,6 @@
               });
             });
         </script>
-
-
         
     </head>
     <body>
@@ -125,7 +123,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-section billing-info">
                     <h3 class="payment-subheadings">Billing Address</h3>
                     <div class="field-wrapper"> 
@@ -180,15 +177,7 @@
     </div>
 </div>
         
-            <footer class="site-footer">
-                <div class="row">
-                    <div class="small-12 columns">
-                        <div class="links">
-                            <span>© 2015 Bazaarboy, LLC</span><span>|</span><a href="https://bazaarboy.s3.amazonaws.com/static/bboy-terms.pdf">Terms of Use</a><a href="/pricing/">Pricing</a><a href="mailto:build@bazaarboy.com">Contact</a><a href="/login/">Log In</a><a href="/register/">Sign Up</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+           
         </section>
       
 
